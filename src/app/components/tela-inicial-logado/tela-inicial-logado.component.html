@@ -1,4 +1,4 @@
-<div class="container-fuid">
+<div>
   <img class="img-fundo" src="assets/img2.jpg" alt="foto de fundo">
   <section>
     <div class="d-flex">
@@ -11,7 +11,25 @@
         <div class="text-center txt-login mt-4">
           <h3 class="fw-semibold">Minhas Tarefas</h3>
         </div>
-        <div class="card mt-3">
+        <div class="card mt-3 me-3">
+          <button
+            type="button"
+            class="btn add-tarefa"
+            (click)="getUsuario()"
+            [routerLink]="['/adicina-tarefa/', userData.id]">
+            Criar Nova Tarefa
+          </button>
+          <label for="descricaoInput" class="form-label mt-3 filtro-lb">Pesquisa por Status</label>
+          <div class="d-flex justify-content-end">
+            <select (change)="searchTask(selectedValue)" [(ngModel)]="selectedValue" class="form-select form-select-sm filter" aria-label="Small select example" [formControl]="statusForm">
+              <option value="To do">To do</option>
+              <option value="In progress">In progress</option>
+              <option value="Done">Done</option>
+            </select>
+            <div class="filter">
+              <button type="button" class="btn btn-filtro" (click)="cleanFilter()" >Limpar filtro</button>
+            </div>
+          </div>
           <div class="card-body">
             <table class="table table-striped table-bordered">
               <thead>
@@ -23,12 +41,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of listaTarefas">
+                <tr *ngFor="let item of listaTarefasCompleta">
                   <td>{{item.titulo}}</td>
                   <td>{{item.descricao}}</td>
-                  <td>{{this.status}}</td>
+                  <td>{{item.status}}</td>
                   <td>
-                    <i class="bi bi-pencil-square"></i>
+                    <div class="d-flex">
+                      <i class="bi bi-pencil-square text-primary" [routerLink]="['/editar-tarefa/', item.id]"></i>
+                      <i class="bi bi-trash ms-3 text-danger" (click)="deleteTarefa(item.id)"></i>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -39,3 +60,4 @@
     </div>
   </section>
 </div>
+

@@ -3,5 +3,7 @@ export interface Tarefa {
   titulo: string
   descricao: string
   status: number
+  dataCriacao?: string
+  dataAtualizacao?: Date
   idUsuario: number
 }

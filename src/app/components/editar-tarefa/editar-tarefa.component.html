@@ -1,0 +1,84 @@
+<div>
+  <img class="img-fundo" src="assets/img2.jpg" alt="foto de fundo">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="card">
+      <h3 class="text-center mt-2">Atualizar Nova Tarefa</h3>
+      <div class="card-body">
+        <form action="post" [formGroup]="tarefaForm" (ngSubmit)="updateTarefa()">
+          <label for="idInput" class="form-label mt-3">id</label>
+          <input
+            class="form-control"
+            type="text"
+            id="idInput"
+            placeholder="{{tarefaId}}"
+            disabled/>
+
+          <label for="tituloInput" class="form-label mt-3">Titulo</label>
+          <input
+            class="form-control"
+            type="text"
+            id="tituloInput"
+            formControlName="titulo"
+            placeholder="{{tarefa.titulo}}"/>
+            <div *ngIf="tarefaForm.controls['titulo']?.errors?.['required'] &&
+            tarefaForm.controls['titulo'].touched"
+             class="text-danger error ms-1">
+              Campo obrigatório!
+            </div>
+
+          <label for="descricaoInput" class="form-label mt-3">Descrição</label>
+          <textarea
+            class="form-control"
+            type="text"
+            id="descricaoInput"
+            formControlName="descricao">
+          </textarea>
+          <div *ngIf="tarefaForm.controls['decricao']?.errors?.['required'] &&
+            tarefaForm.controls['decricao'].touched"
+             class="text-danger error ms-1">
+              Campo obrigatório!
+            </div>
+
+          <select class="form-select form-select-sm mt-3" aria-label="Small select example" formControlName="status">
+            <option selected>Status</option>
+            <option value="1">To do</option>
+            <option value="2">In progress</option>
+            <option value="3">Done</option>
+          </select>
+          <div *ngIf="tarefaForm.controls['status']?.errors?.['required'] &&
+            tarefaForm.controls['status'].touched"
+             class="text-danger error ms-1">
+              Campo obrigatório!
+            </div>
+
+          <label for="dataCriacaoInput" class="form-label mt-3">Data Criação</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="{{tarefa.dataCriacao | date: 'dd/MM/yyy'}}"
+            id="dataCriacaoInput" disabled/>
+
+            <label for="dataAtualizacaoInput" class="form-label mt-3">Data Atualização</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="{{tarefa.dataAtualizacao | date: 'dd/MM/yyy'}}"
+              id="dataAtualizacaoInput"
+              disabled />
+
+              <label for="idUsuarioInput" class="form-label mt-3">Usuário ID</label>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="{{tarefa.idUsuario}}"
+              id="idUsuarioInput"
+              disabled/>
+          <div class="d-flex">
+            <button type="submit" class="btn btn-success mt-3">Salvar</button>
+            <button type="button" class="btn btn-secondary ms-3 mt-3" routerLink="/tela-inicial">cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

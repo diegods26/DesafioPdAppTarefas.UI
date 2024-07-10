@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './navbar.component';
+import { TelaCadastroComponent } from './tela-cadastro.component';
 
 const routes: Routes = [
+  {path: 'cadastro-usuario', component: TelaCadastroComponent}
 ]
 
 @NgModule({
@@ -11,4 +11,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NavbarRoutingModule { }
+export class TelaCadastroRoutingModule { }

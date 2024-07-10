@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import { HomeRoutingModule } from './home-routing.module';
+import { TelaCadastroComponent } from './tela-cadastro.component';
+import { TelaCadastroRoutingModule } from './tela-cadastro-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    TelaCadastroComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    TelaCadastroRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ],
-  exports: [HomeComponent]
+  ]
 })
-export class HomeModule { }
+export class TelaCadastroModule { }

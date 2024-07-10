@@ -1,0 +1,20 @@
+.img-fundo {
+  background-image: url("../../../assets/img2.jpg");
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.card {
+  width: 50%;
+  margin-top: 4%;
+  margin-bottom: 5%;
+}
+
+h3 {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  color: rgb(143, 141, 141);
+}

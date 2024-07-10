@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
-import { HomeRoutingModule } from './home-routing.module';
+import { EditarTarefaComponent } from './editar-tarefa.component';
+import { EditarTarefaRoutingModule } from './editar-tarefa-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    EditarTarefaComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    EditarTarefaRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ],
-  exports: [HomeComponent]
+  ]
 })
-export class HomeModule { }
+export class EditarTarefaModule { }

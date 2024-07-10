@@ -5,3 +5,54 @@
 .logo, .app-name {
   cursor: pointer
 }
+
+.user {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  margin-right: 40px;
+  margin-top: 5px;
+}
+
+.logout {
+  padding-top: 5px;
+  height: 37px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  border: 1px solid white;
+  cursor: pointer;
+  margin-right: 10%;
+  font-size: 15px;
+}
+
+.logout:hover {
+  background-color: #4b5479 !important;
+}
+
+.btn-entrar {
+  cursor: pointer;
+    height: 40px;
+    margin-top: 31px;
+    background-color: #54619e !important;
+    border: 1px solid white;
+}
+
+.btn-entrar:hover {
+  background-color: #4b5479 !important;
+}
+
+.nav-form {
+  width: 32%;
+}
+
+.pd-lt {
+  width: 100%;
+}
+
+.form-content {
+  margin-right: 25px !important;
+}
+
+.error {
+  font-size: 12px;
+}

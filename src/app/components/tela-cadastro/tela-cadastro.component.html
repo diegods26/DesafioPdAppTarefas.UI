@@ -1,0 +1,58 @@
+<main>
+  <img class="img-fundo" src="assets/img2.jpg" alt="foto de fundo">
+  <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center align-items-center">
+    <div class="card mt-3">
+      <div class="card-body">
+        <h4>Preencha os campos com seus dados para se cadastrar</h4>
+        <form class="needs-validation" [formGroup]="userForm" (ngSubmit)="addUser()">
+          <div class="mb-3 has-validation">
+            <label for="inputNome" class="form-label">Nome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputNome"
+              formControlName="nome"
+              required>
+              <div *ngIf="userForm.controls['nome']?.errors?.['required'] &&
+              userForm.controls['nome'].touched"
+               class="text-danger error ms-1">
+                Campo obrigatório!
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+              formControlName="password"
+              required />
+              <div *ngIf="userForm.controls['password']?.errors?.['required'] &&
+                  userForm.controls['password'].touched"
+                   class="text-danger error ms-1">
+                    Campo obrigatório!
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label">Confirmar senha</label>
+            <input
+              type="password"
+              class="form-control"
+              id="exampleInputPassword2"
+              formControlName="confirmPassword"
+              required="">
+              <div *ngIf="userForm.controls['confirmPassword']?.errors?.['required'] &&
+                  userForm.controls['confirmPassword'].touched"
+                   class="text-danger error ms-1">
+                    Campo obrigatório!
+              </div>
+          </div>
+          <div class="d-flex">
+            <button type="submit" class="btn btn-success" routerLink="tela-inicial">Cadastrar</button>
+            <button type="submit" class="btn btn-secondary ms-3" routerLink="/">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

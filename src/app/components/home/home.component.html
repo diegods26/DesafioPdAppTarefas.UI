@@ -7,27 +7,30 @@
         <h3 class="p-5">Com a nossa Lista de tarefas você pode gerenciar melhor tempo para cada projeto!</h3>
       </div>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <div class="text-center txt-login">
-        <h5 class="fw-semibold">Entre com seu login e senha ou cadastre-se!</h5>
-      </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" *ngIf="!loggedIn">
       <div class="card mt-3">
         <div class="card-body">
-          <form>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Login</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-              <p>Ou Cadastre-se <a href="/" class="text-primary fw-semibold">aqui</a></p>
-            </div>
-            <button type="submit" class="btn btn-primary" routerLink="tela-inicial">Entrar</button>
-          </form>
+          <div class="text-center txt-login">
+            <h5 class="fw-semibold">Entre com seu login e senha ou cadastre-se!</h5>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-cadastro" type="button" routerLink="cadastro-usuario">Cadastre-se aqui</button>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4" *ngIf="loggedIn">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h3>Adicione uma nova tarefa! É simples e rápido.</h3>
+        </div>
+        <button
+            type="button"
+            class="btn add-tarefa"
+            (click)="getUsuario()">
+            Criar Nova Tarefa
+          </button>
       </div>
     </div>
   </div>

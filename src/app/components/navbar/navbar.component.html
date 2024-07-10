@@ -1,10 +1,56 @@
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">
     <div class="d-flex align-items-center justify-content-between w-100">
-      <p class="navbar-brand logo ps-5" routerLink="/">
+      <p class="navbar-brand logo ps-5 col-2" routerLink="/">
         <img src="assets/logo.png" alt="logo">
       </p>
-      <h1 class="pe-5 text-white app-name" routerLink="/">To Do List</h1>
+
+        <h1 class="pe-5 text-white app-name" routerLink="/">To Do List</h1>
+
+        <div class="nav-form">
+          <form *ngIf="!isUserLoggedIn" [formGroup]="loginForm" #form="ngForm" (ngSubmit)="loginUser()" autocomplete="off">
+            <div class="d-flex form-content">
+
+              <div class="">
+                <label for="nomeInput" class="form-label text-white">Nome</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nomeInput"
+                  aria-describedby="nomeInputValidate"
+                  #newItem
+                  formControlName="nome" required>
+                  <div *ngIf="nome?.errors?.['required'] && nome?.touched" class="text-white error ms-1">
+                    Campo obrigatório!
+                  </div>
+              </div>
+              <div class="ms-2">
+                <label for="inputSenha" class="form-label text-white">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="inputSenha"
+                  formControlName="senha" required>
+                  <div *ngIf="loginForm.controls['senha']?.errors?.['required'] &&  loginForm.controls['senha'].touched" class="text-white error ms-1">
+                    Campo obrigatório!
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-entrar ms-2">Entrar</button>
+
+            </div>
+
+          </form>
+          <div *ngIf="isUserLoggedIn" class="d-flex pd-lt">
+              <span class="user">Bem vindo: {{this.userName}} </span>
+              <a href="/" *ngIf="isUserLoggedIn" class="btn text-white logout" (click)="logout()">
+                Logout <i class="bi bi-box-arrow-right"></i>
+              </a>
+            </div>
+        </div>
+
+
+
+
     </div>
   </div>
 </nav>

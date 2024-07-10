@@ -1,0 +1,66 @@
+<div>
+  <img class="img-fundo" src="assets/img2.jpg" alt="foto de fundo">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="text-center">Criar Nova Tarefa</h3>
+        <form action="post" [formGroup]="tarefaForm" (ngSubmit)="postTarefa()">
+          <label for="tituloInput" class="form-label">Titulo</label>
+          <input
+            id="tituloInput"
+            class="form-control"
+            type="text"
+            placeholder="Seu titulo"
+            formControlName="titulo"
+            autocomplete="off"
+            required />
+            <div *ngIf="tarefaForm.controls['titulo']?.errors?.['required'] &&
+            tarefaForm.controls['titulo'].touched && tarefaForm.invalid"
+             class="text-danger error ms-1">
+              Campo obrigatório!
+            </div>
+
+          <label for="descricaoInput" class="form-label mt-3">Descrição...</label>
+          <textarea
+            id="descricaoInput"
+            class="form-control"
+            type="text"
+            placeholder="Sua descrição"
+            formControlName="descricao"
+            autocomplete="off"
+            required>
+          </textarea>
+          <div *ngIf="tarefaForm.controls['descricao']?.errors?.['required'] &&
+            tarefaForm.controls['descricao'].touched"
+             class="text-danger error ms-1">
+              Campo obrigatório!
+            </div>
+
+          <label for="statusSelect" class="form-label mt-3">Status</label>
+          <select
+            class="form-select form-select-sm status"
+            aria-label="Small select example"
+            id="statusSelect"
+            formControlName="status">
+            <option value="1">To do</option>
+            <option value="2">In progress</option>
+            <option value="3">Done</option>
+          </select>
+          <div *ngIf="tarefaForm.controls['status']?.errors?.['required'] &&
+            tarefaForm.controls['status'].touched"
+             class="text-danger error ms-1">
+              Campo obrigatório!
+            </div>
+          <div class="d-flex">
+            <button type="submit" class="btn btn-success mt-3">Salvar</button>
+            <button type="button" class="btn btn-secondary ms-3 mt-3" routerLink="/tela-inicial">cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isAutorized">
+  <app-nao-autorizado></app-nao-autorizado>
+</div>

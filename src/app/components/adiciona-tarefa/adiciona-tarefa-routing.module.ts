@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './navbar.component';
+import { AdicionaTarefaComponent } from './adiciona-tarefa.component';
 
 const routes: Routes = [
+  {path: 'adicina-tarefa/:id', component: AdicionaTarefaComponent}
 ]
 
 @NgModule({
@@ -11,4 +12,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NavbarRoutingModule { }
+export class AdicionaTarefaRoutingModule { }
